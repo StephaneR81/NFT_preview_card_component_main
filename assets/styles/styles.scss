@@ -138,9 +138,10 @@ main {
             }
 
             a {
-
+                padding-left: 5px;
                 text-decoration: none;
                 color: $white;
+                transition: color 0.2s ease-in-out;
             }
         }
     }
@@ -154,5 +155,72 @@ main {
 
     .card {
         margin-top: initial;
+
+        &__top {
+            position: relative;
+
+            &::before {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                width: 270px;
+                height: 270px;
+                content: '';
+                z-index: 1;
+                background-color: $cyan;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            &:hover::before {
+                opacity: 50%;
+            }
+
+            // White eye
+            &::after {
+                position: absolute;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                top: 0;
+                left: 0;
+                width: 270px;
+                height: 270px;
+                content: '\01F441';
+                font-size: 50px;
+                z-index: 2;
+                color: #FFF;
+                cursor: pointer;
+                opacity: 0;
+                transition: opacity 0.2s ease-in-out;
+            }
+
+            // White eye hover
+            &:hover::after {
+                opacity: 100%;
+            }
+        }
+
+        &__bottom {
+            h1 {
+                transition: color 0.2s ease-in-out;
+
+                &:hover {
+                    color: $cyan;
+                    cursor: pointer;
+                }
+            }
+
+            p {
+
+                a:hover {
+
+                    color: $cyan;
+                }
+            }
+        }
     }
 }
